@@ -8,6 +8,7 @@ import {
     WhatsappIcon
   } from 'react-share';
 
+// share component to render different platform share buttons
 const Share = (props)=>{
     const {showShare, image} = props;
     return (

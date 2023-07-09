@@ -1,5 +1,7 @@
 
 import "./Image.css";
+
+// image component to render image.
 const Image = (props)=>{
 
     const {show, image, setShow} = props

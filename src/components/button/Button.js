@@ -1,6 +1,6 @@
 
 import "./Button.css"
-
+//button component to return our buttons from one place.
 const Button = (props)=>{
     const {title, clickHandler} = props;
     return(

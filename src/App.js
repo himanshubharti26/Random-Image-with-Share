@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import HelmetMetaData from './components/Helmet';
 import Image from './components/image/Image'
@@ -13,8 +13,12 @@ function App() {
   const [showShare, setShowShare] = useState(false)
 
   const baseUrl = "https://picsum.photos";
+
+  //adding this variable to avoid updating the image twice as react renders components twice in dev mode.
   let imageShown = false;
 
+
+//fetching image file from the api
   const getImage =()=>{
       fetch(`${baseUrl}/200/200`).then(data=>{
         console.log("recived data: ",data);
@@ -29,12 +33,16 @@ function App() {
       })
     }
   
+
+    //using useEffect to fetch image every time component rerenders.
     useEffect(()=>{
       setShow(false);
       getImage();
+      // eslint-disable-next-line
     },[])
   
   
+
    const  handleImageDisplay = ()=>{
       setShow(true);
    }
@@ -50,7 +58,7 @@ function App() {
 
   return (
     <div className='container'>
-
+{/* To add meta data to show the preview on the respective websites */}
       <HelmetMetaData image={image} url={image}></HelmetMetaData>
       <Image image={image} setShow={handleImageDisplay} show={show}/>
 
