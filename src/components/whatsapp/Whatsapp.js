@@ -34,9 +34,9 @@ import { WhatsappIcon, WhatsappShareButton } from "react-share";
       }, []);
       return(
         <>
-            <WhatsappShareButton url={image} onClick={handleOnSubmit}>
+            <button  onClick={handleOnSubmit}>
                 <WhatsappIcon size={36} round={true} cursor="pointer" />
-            </WhatsappShareButton>
+            </button>
         </>
       )
 
