@@ -5,11 +5,11 @@ import { WhatsappIcon, WhatsappShareButton } from "react-share";
   const Whatsapp = (props)=>{
     const {image} = props;
     const handleOnSubmit= async()=> {
-        // const response = await fetch("https://picsum.photos/200/200");
+        const response = await fetch(image);
         // here image is url/location of image
-        // const blob = await response.blob();
-        const blob = image;
-        const file = new File([blob], 'share.jpg', {type:blob.type?blob.type:"jpeg/image"});
+        const blob = await response.blob();
+        // const blob = image;
+        const file = new File([blob], 'share.jpg', {type:blob.type?blob.type:"image/jpeg"});
         console.log("file==>",file);
         if(navigator.share) {
           await navigator.share({
@@ -34,7 +34,7 @@ import { WhatsappIcon, WhatsappShareButton } from "react-share";
       }, []);
       return(
         <>
-            <button  onClick={handleOnSubmit}>
+            <button  style={{background:"#fff", border:"none", borderRadius:"35%", width:"90%"}}onClick={handleOnSubmit}>
                 <WhatsappIcon size={36} round={true} cursor="pointer" />
             </button>
         </>
