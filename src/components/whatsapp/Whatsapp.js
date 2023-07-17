@@ -15,7 +15,7 @@ import { WhatsappIcon, WhatsappShareButton } from "react-share";
           await navigator.share({
             title: "image",
             text: "random image",
-            url: "https://web.whatsapp.com/",
+            url: image,
             files: [file]     
           })
             .then(() => console.log('Successful share'))
