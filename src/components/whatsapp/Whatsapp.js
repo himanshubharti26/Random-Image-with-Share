@@ -5,11 +5,11 @@ import { WhatsappIcon, WhatsappShareButton } from "react-share";
   const Whatsapp = (props)=>{
     const {image} = props;
     const handleOnSubmit= async()=> {
-        const response = await fetch("https://picsum.photos/200/200");
+        // const response = await fetch("https://picsum.photos/200/200");
         // here image is url/location of image
-        const blob = await response.blob();
-        // const blob = image;
-        const file = new File([blob], 'share.jpg', {type:blob.type});
+        // const blob = await response.blob();
+        const blob = image;
+        const file = new File([blob], 'share.jpg', {type:blob.type?blob.type:"jpeg/image"});
         console.log("file==>",file);
         if(navigator.share) {
           await navigator.share({
