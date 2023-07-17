@@ -1,3 +1,4 @@
+import Whatsapp from "../whatsapp/Whatsapp";
 import "./Share.css";
 import { 
     FacebookShareButton, 
@@ -20,10 +21,7 @@ const Share = (props)=>{
                 <TwitterShareButton url={image}>
                 <TwitterIcon size={36} round={true} cursor="pointer" /> 
                 </TwitterShareButton>
-                <WhatsappShareButton url={image} >
-                <WhatsappIcon size={36} round={true} cursor="pointer" />
-                </WhatsappShareButton>
-                
+                <Whatsapp image = {image}/>
                 </div>
             }
         </>
